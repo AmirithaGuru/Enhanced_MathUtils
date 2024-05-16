@@ -1,0 +1,43 @@
+// Example of MathUtilsTest.java
+package com.example.math_utils;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+public class MathUtilsTest {
+    private MathUtils mathUtils;
+
+    @BeforeAll
+    public void setup() {
+        mathUtils = new MathUtils();
+    }
+
+    @Test
+    public void testAdd() {
+        assertEquals(5, mathUtils.add(2, 3));
+    }
+
+    @Test
+    public void testSubtract() {
+        assertEquals(-1, mathUtils.subtract(2, 3));
+    }
+
+    @Test
+    public void testMultiply() {
+        assertEquals(6, mathUtils.multiply(2, 3));
+    }
+
+    @Test
+    public void testDivide() {
+        assertEquals(2.0, mathUtils.divide(4, 2), 0.001);
+        assertEquals(-1.0, mathUtils.divide(4, 0), 0.001); // Test division by zero
+    }
+
+    @AfterAll
+    public void teardown() {
+        mathUtils = null;
+    }
+}

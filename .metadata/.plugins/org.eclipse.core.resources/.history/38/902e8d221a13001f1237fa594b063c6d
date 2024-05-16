@@ -1,0 +1,43 @@
+package com.example.math_utils;
+
+import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class MathUtilsTest {
+    private MathUtils mathUtils;
+
+    @BeforeEach
+    public void setup() {
+        mathUtils = new MathUtils();
+    }
+
+    @Test
+    public void testAdd() {
+        Assertions.assertEquals("Adding 2 and 3 should return 5", 5, mathUtils.add(2, 3));
+    }
+
+    @Test
+    public void testSubtract() {
+        Assertions.assertEquals("Subtracting 3 from 2 should return -1", -1, mathUtils.subtract(2, 3));
+    }
+
+    @Test
+    public void testMultiply() {
+        Assertions.assertEquals("Multiplying 2 and 3 should return 6", 6, mathUtils.multiply(2, 3));
+    }
+
+    @Test
+    public void testDivide() {
+        assertEquals("Dividing 4 by 2 should return 2.0", 2.0, mathUtils.divide(4, 2), 0.001);
+        assertEquals("Dividing by zero should return -1.0", -1.0, mathUtils.divide(4, 0), 0.001);
+    }
+
+    @AfterEach
+    public void teardown() {
+        mathUtils = null; // Clean up after tests
+    }
+}
